@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtCore, QtGui, uic
+from PyQt5 import QtCore, QtGui, uic, QtWidgets
 import matplotlib.pyplot as plt
 import serial
 import numpy as np
@@ -19,9 +19,9 @@ yAxisMax = 5
 xAxisMin = 1
 xAxisMax = 3648
 
-class mainWindowClass(QtGui.QMainWindow, form_class):
+class mainWindowClass(QtWidgets.QMainWindow, form_class):
 	def __init__(self, parent=None):
-		QtGui.QMainWindow.__init__(self, parent)
+		QtWidgets.QMainWindow.__init__(self, parent)
 		self.setupUi(self)
 		self.getSpectra_btn.clicked.connect(self.startSpectraCapture)
 		self.postSpectra_btn.clicked.connect(self.plotLy)
@@ -206,7 +206,7 @@ class mainWindowClass(QtGui.QMainWindow, form_class):
 
 
 		
-app = QtGui.QApplication(sys.argv)
+app = QtWidgets.QApplication(sys.argv)
 mainWindow = mainWindowClass(None)
 mainWindow.show()
 app.exec_()
