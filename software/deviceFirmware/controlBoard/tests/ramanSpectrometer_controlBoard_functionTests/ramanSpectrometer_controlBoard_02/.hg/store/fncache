@@ -1,0 +1,9 @@
+data/DS18B20Multiple/OneWireThermometer.cpp.i
+data/DS18B20Multiple/OneWireCRC.h.i
+data/main.cpp.i
+data/DS18B20Multiple/OneWireThermometer.h.i
+data/DS18B20Multiple/DS18B20.h.i
+data/DS18B20Multiple/OneWireCRC.cpp.i
+data/DS18B20Multiple/OneWireDefs.h.i
+data/mbed.bld.i
+data/DS18B20Multiple/DS18B20.cpp.i
