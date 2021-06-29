@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1041</width>
-    <height>714</height>
+    <width>1140</width>
+    <height>725</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,7 +102,7 @@
      <rect>
       <x>10</x>
       <y>240</y>
-      <width>261</width>
+      <width>221</width>
       <height>371</height>
      </rect>
     </property>
@@ -205,7 +205,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>261</width>
+      <width>221</width>
       <height>201</height>
      </rect>
     </property>
@@ -221,9 +221,9 @@
    <widget class="QGraphicsView" name="spectralView">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>250</x>
       <y>240</y>
-      <width>741</width>
+      <width>881</width>
       <height>411</height>
      </rect>
     </property>
@@ -247,9 +247,9 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>250</x>
       <y>20</y>
-      <width>741</width>
+      <width>881</width>
       <height>201</height>
      </rect>
     </property>
@@ -284,7 +284,7 @@
     <widget class="QLineEdit" name="sampleName_box">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>420</x>
        <y>110</y>
        <width>201</width>
        <height>20</height>
@@ -302,7 +302,7 @@
       <rect>
        <x>140</x>
        <y>160</y>
-       <width>591</width>
+       <width>721</width>
        <height>23</height>
       </rect>
      </property>
@@ -336,9 +336,9 @@
     <widget class="QPushButton" name="getSpectra_btn">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>760</x>
        <y>20</y>
-       <width>91</width>
+       <width>101</width>
        <height>31</height>
       </rect>
      </property>
@@ -381,9 +381,9 @@
     <widget class="QPushButton" name="popUpSpectra_btn">
      <property name="geometry">
       <rect>
-       <x>540</x>
+       <x>640</x>
        <y>60</y>
-       <width>91</width>
+       <width>111</width>
        <height>31</height>
       </rect>
      </property>
@@ -428,9 +428,9 @@
     <widget class="QPushButton" name="postSpectra_btn">
      <property name="geometry">
       <rect>
-       <x>540</x>
+       <x>640</x>
        <y>20</y>
-       <width>91</width>
+       <width>111</width>
        <height>31</height>
       </rect>
      </property>
@@ -441,9 +441,9 @@
     <widget class="QComboBox" name="postSite_combo">
      <property name="geometry">
       <rect>
-       <x>430</x>
-       <y>20</y>
-       <width>101</width>
+       <x>640</x>
+       <y>100</y>
+       <width>111</width>
        <height>31</height>
       </rect>
      </property>
@@ -507,9 +507,9 @@
     <widget class="QPushButton" name="printSpectra_btn">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>760</x>
        <y>100</y>
-       <width>91</width>
+       <width>101</width>
        <height>31</height>
       </rect>
      </property>
@@ -520,9 +520,9 @@
     <widget class="QPushButton" name="saveSpectra_btn">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>760</x>
        <y>60</y>
-       <width>91</width>
+       <width>101</width>
        <height>31</height>
       </rect>
      </property>
@@ -533,7 +533,7 @@
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>420</x>
        <y>90</y>
        <width>111</width>
        <height>16</height>
@@ -608,7 +608,7 @@
       <rect>
        <x>140</x>
        <y>110</y>
-       <width>111</width>
+       <width>151</width>
        <height>31</height>
       </rect>
      </property>
@@ -622,7 +622,7 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>280</x>
+       <x>250</x>
        <y>80</y>
        <width>111</width>
        <height>21</height>
@@ -635,11 +635,34 @@
       <bool>false</bool>
      </property>
     </widget>
+    <widget class="QComboBox" name="serialCombo">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>40</y>
+       <width>211</width>
+       <height>32</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>20</y>
+       <width>81</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Serial Port</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="clearSpectra_btn">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>130</x>
       <y>620</y>
       <width>91</width>
       <height>31</height>
@@ -665,8 +688,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1041</width>
-     <height>19</height>
+     <width>1140</width>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuRamanPi_spectraCide_v0_1">

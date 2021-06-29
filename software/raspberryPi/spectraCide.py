@@ -2,6 +2,7 @@ import sys
 from PyQt5 import QtCore, QtGui, uic, QtWidgets
 import matplotlib.pyplot as plt
 import serial
+import serial.tools.list_ports
 import numpy as np
 import os
 import chart_studio.plotly as py
@@ -29,6 +30,7 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 		self.quit_btn.clicked.connect(self.quitApp)
 		self.popUpSpectra_btn.clicked.connect(self.popUpSpectra)
 		self.captureProgress.setValue(0)
+		self.getSerialPorts()
 
 	def killOldData(self):
 		try:
@@ -204,8 +206,11 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 	
 	plot_Title = 'ramanPi_spectraCide Ver0.1a'
 
+	def getSerialPorts(self):
+		ports = serial.tools.list_ports.comports()
+		for port, desc, hwid in sorted(ports):
+			self.serialCombo.addItem("{}: [{}]".format(port, hwid))
 
-		
 app = QtWidgets.QApplication(sys.argv)
 mainWindow = mainWindowClass(None)
 mainWindow.show()
