@@ -1,10 +1,10 @@
 import sys
-from PyQt4 import QtCore, QtGui, uic
+from PyQt5 import QtCore, QtGui, uic
 import matplotlib.pyplot as plt
 import serial
 import numpy as np
 import os
-import plotly.plotly as py
+import chart_studio.plotly as py
 from plotly.graph_objs import *
 import time
 
@@ -147,28 +147,28 @@ class mainWindowClass(QtGui.QMainWindow, form_class):
 		self.setSensitivity()
 		self.captureProgress.setValue(0)
 		self.killOldData()
-		print "Aquiring spectra......"
+		print("Aquiring spectra......")
 		value = self.captureProgress.value() + 20
 		self.captureProgress.setValue(value)
 		self.getSpectra()
-		print "Reading specta......"
+		print("Reading specta......")
 		value = self.captureProgress.value() + 20
 		self.captureProgress.setValue(value)
-		print "Plotting spectra....."
+		print("Plotting spectra.....")
 		value = self.captureProgress.value() + 20
 		self.captureProgress.setValue(value)
 		self.readSpectra()
 #		plotSpectra()
 		value = self.captureProgress.value() + 20
 		self.captureProgress.setValue(value)
-		print "Done..."
+		print("Done...")
 		value = self.captureProgress.value() + 20
 		self.captureProgress.setValue(value)
 
 	def setSensitivity(self):
 		mcu = serial.Serial('COM62', 921600)
-		print "Set Sensitivity Level:" 
-		print self.exposureDial.value()
+		print("Set Sensitivity Level:")
+		print(self.exposureDial.value())
 #		try:
 #			sens = input("Enter Sensitivity Level (1-6):")
 #		except SyntaxError:
@@ -177,27 +177,27 @@ class mainWindowClass(QtGui.QMainWindow, form_class):
 		expVal = self.exposureDial.value()
 		if expVal == 1:
 			mcu.write('l\r\n')
-			print "Exposure Setting: 1"
+			print( "Exposure Setting: 1")
 #		if sens == 2:
 		if expVal == 2:
 			mcu.write('v\r\n')
-			print "Exposure Setting: 2"
+			print("Exposure Setting: 2")
 #		if sens == 3:
 		if expVal == 3:
 			mcu.write('n\r\n')
-			print "Exposure Setting: 3"
+			print("Exposure Setting: 3")
 #		if sens == 4:
 		if expVal == 4:
 			mcu.write('m\r\n')
-			print "Exposure Setting: 4"
+			print("Exposure Setting: 4")
 #		if sens == 5:
 		if expVal == 5:
 			mcu.write('h\r\n')
-			print "Exposure Setting: 5"
+			print("Exposure Setting: 5")
 #		if sens == 6:
 		if expVal == 6:
 			mcu.write('c\r\n')
-			print "Exposure Setting: 6"
+			print("Exposure Setting: 6")
 		
 	def quitApp(self):
 		sys.exit()
