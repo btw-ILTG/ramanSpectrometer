@@ -662,14 +662,14 @@
    <widget class="QPushButton" name="clearSpectra_btn">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>120</x>
       <y>620</y>
-      <width>91</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>clearSpectra</string>
+     <string>Clear Spectra</string>
     </property>
    </widget>
    <zorder>frame</zorder>
