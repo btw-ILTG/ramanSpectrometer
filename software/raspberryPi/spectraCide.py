@@ -16,9 +16,12 @@ fmode = 'ab'			# set the file mode to append binary
 lines = 0
 
 yAxisMin = 0.85
-yAxisMax = 5
-xAxisMin = 1
-xAxisMax = 3648
+#yAxisMax = 5
+yAxisMax = 20
+#xAxisMin = 1
+xAxisMin = 32
+#xAxisMax = 3648
+xAxisMax = 3616
 
 class mainWindowClass(QtWidgets.QMainWindow, form_class):
 	def __init__(self, parent=None):
@@ -80,11 +83,18 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 
 		for line in lines:
 			p = line.split()				# scan the rows of the file stored in lines, and put the values 
-			x1.append(float(p[0]))			#      into some variables:
-			y1.append(float(p[1]))
+			if ">" in p[0]:					#      	into some variables
+				print("> found!")			# the if statement is to get rid of the first less than symbol 
+											# 		that is found, since I don't know how else to get rid of it
+			else:
+				x1.append(float(p[0]))			
+				y1.append(float(p[1]))
 
-		fig = plt.figure(1)
-		ax = fig.add_subplot(111, axisbg='black')
+		my_dpi=96
+		fig = plt.figure(1, figsize=(881/my_dpi,411/my_dpi), dpi=my_dpi) # Found here: stackoverflow.com/questions/13714454/specifying-and-saving-a-figure-with-exact-size-in-pixels
+																		 # The 881 and 411 is the new size of the spectra window
+		#ax = fig.add_subplot(111, axisbg='black')
+		ax = fig.add_subplot(111)
 		rect = fig.patch 					# a rectangle instance
 		rect.set_facecolor('lightslategray')	
 		ax.relim()
@@ -99,15 +109,15 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 #		plt.autoscale(True, axis='y', tight=True)
 		xv = np.array(x1)                                          		# set the array for x
 		yv = np.array(y1)                                          		# set the array for y
-		plt.plot(xv, yv, color = 'white', lw=1)                    		# plot the matplotlib data
+		plt.plot(xv, yv, color = 'black', lw=1)                    		# plot the matplotlib data
 		self.save("tmpSpectra", ext="png", close=False, verbose=True)
 #		plt.show()                                                     	# show the matplotlib graph
 
-		scene = QtGui.QGraphicsScene(self)
+		scene = QtWidgets.QGraphicsScene(self)
 #		scene.setSceneRect(0,0,461,281)
 		img = QtGui.QPixmap("tmpSpectra.png")
-		imgItem = QtGui.QGraphicsPixmapItem(img)
-		scene.addItem(QtGui.QGraphicsPixmapItem(img))
+		imgItem = QtWidgets.QGraphicsPixmapItem(img)
+		scene.addItem(QtWidgets.QGraphicsPixmapItem(img))
 		scene.addText("ramanPi_2014")
 		view = self.spectralView
 		view.setScene(scene)
@@ -183,23 +193,23 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 			print( "Exposure Setting: 1")
 #		if sens == 2:
 		if expVal == 2:
-			mcu.write('2')
+			mcu.write(b'2')
 			print("Exposure Setting: 2")
 #		if sens == 3:
 		if expVal == 3:
-			mcu.write('3')
+			mcu.write(b'3')
 			print("Exposure Setting: 3")
 #		if sens == 4:
 		if expVal == 4:
-			mcu.write('4')
+			mcu.write(b'4')
 			print("Exposure Setting: 4")
 #		if sens == 5:
 		if expVal == 5:
-			mcu.write('5')
+			mcu.write(b'5')
 			print("Exposure Setting: 5")
 #		if sens == 6:
 		if expVal == 6:
-			mcu.write('6')
+			mcu.write(b'6')
 			print("Exposure Setting: 6")
 		
 	def quitApp(self):
@@ -207,7 +217,7 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 	
 	plot_Title = 'ramanPi_spectraCide Ver0.1a'
 
-	def getSerialPorts(self):
+	def getSerialPorts(self):									# From stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
 		ports = serial.tools.list_ports.comports()
 		for port, desc, hwid in sorted(ports):
 			self.serialCombo.addItem("{}: [{}]".format(port, hwid))
