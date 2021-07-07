@@ -58,7 +58,7 @@ class mainWindowClass(QtWidgets.QMainWindow, form_class):
 		savepath = os.path.join(directory, filename)			 # The final path to save to
 		if verbose:
 			print("Saving figure to '%s'..." % savepath),		 # Actually save the figure
-		plt.savefig(savepath, dpi=None, faceColor='w', edgecolor='w', orientation='portrait', papertype=None, format=None, transparent=False, bbox_inches=None, pad_inches=0.1, frameon=None)
+		plt.savefig(savepath, dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches=None, pad_inches=0.1)
 		if close:																																					 # Close it
 			plt.close()
 		if verbose:
