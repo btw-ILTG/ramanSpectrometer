@@ -139,7 +139,7 @@ void imaging_thread(void const *args){
                 if (mcInc >= 32){
                     printf("%i\t%4.12f\r\n", mcInc, (((pixelIn.read_u16()*3.3)/4096.0)));
                 }
-                printf("%i\t%4.12f\r\n", mcInc, (((pixelValue[pixelCount]*3.3)/4096.0)));
+                //printf("%i\t%4.12f\r\n", mcInc, (((pixelValue[pixelCount]*3.3)/4096.0)));
             }
             tp_signalElements = 0;
             tcd1304dg_clocks = transition_10; //         |   |  |   |
